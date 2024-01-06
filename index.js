@@ -28,7 +28,7 @@ db.once('open', () => {
 const AttendanceRecord = require('./models/AttendanceRecord');
 
 // REST API endpoints
-app.post('/mark-attendance', async (req, res) => {
+app.post('https://vidhya-ghar-backend.vercel.app/mark-attendance', async (req, res) => {
   const { studentId, date, status } = req.body;
 
   try {
@@ -48,7 +48,7 @@ app.post('/mark-attendance', async (req, res) => {
   }
 });
 
-app.get('/get-attendance/:studentId', async (req, res) => {
+app.get('https://vidhya-ghar-backend.vercel.app/get-attendance/:studentId', async (req, res) => {
   const studentId = req.params.studentId;
 
   try {
@@ -61,7 +61,7 @@ app.get('/get-attendance/:studentId', async (req, res) => {
   }
 });
 
-app.get('/students', async (req, res) => {
+app.get('https://vidhya-ghar-backend.vercel.app/students', async (req, res) => {
   try {
     const students = await Student.find();
     res.json(students);
@@ -80,7 +80,7 @@ app.get('/students', async (req, res) => {
 const Result = require('./models/Result'); // Replace with the actual path to your schema
 
 // Create API endpoints
-app.post('/add-result', async (req, res) => {
+app.post('https://vidhya-ghar-backend.vercel.app/add-result', async (req, res) => {
   const { studentId, subject, marks } = req.body;
 
   try {
@@ -93,7 +93,7 @@ app.post('/add-result', async (req, res) => {
   }
 });
 
-app.put('/update-result/:resultId', async (req, res) => {
+app.put('https://vidhya-ghar-backend.vercel.app/update-result/:resultId', async (req, res) => {
   const resultId = req.params.resultId;
   const { marks } = req.body;
 
@@ -106,7 +106,7 @@ app.put('/update-result/:resultId', async (req, res) => {
   }
 });
 
-app.get('/get-results/:studentId', async (req, res) => {
+app.get('https://vidhya-ghar-backend.vercel.app/get-results/:studentId', async (req, res) => {
   const studentId = req.params.studentId;
 
   try {
@@ -119,7 +119,7 @@ app.get('/get-results/:studentId', async (req, res) => {
 });
 
 
-app.get('/all-result', async (req, res) => {
+app.get('https://vidhya-ghar-backend.vercel.app/all-result', async (req, res) => {
   try {
     const showresult = await Result.find();
     res.json(showresult);
@@ -136,7 +136,7 @@ app.get('/all-result', async (req, res) => {
 const Complaint = require('./models/Complaint'); // Adjust the path to your Complaint model
 
 // Submit a complaint
-app.post('/submit-complaint', async (req, res) => {
+app.post('https://vidhya-ghar-backend.vercel.app/submit-complaint', async (req, res) => {
   const { userType, title, description } = req.body;
 
   
@@ -151,7 +151,7 @@ app.post('/submit-complaint', async (req, res) => {
 });
 
 // Get complaints by user ID
-app.get('/complaints/', async (req, res) => {
+app.get('https://vidhya-ghar-backend.vercel.app/complaints/', async (req, res) => {
   const userId = req.params.userId;
 
   try {
@@ -168,7 +168,7 @@ app.get('/complaints/', async (req, res) => {
 const Teacher = require('./models/Teacher');
 
 // Create a new teacher
-app.post('/teachers', async (req, res) => {
+app.post('https://vidhya-ghar-backend.vercel.app/teachers', async (req, res) => {
   try {
     const teacherData = req.body;
     const teacher = new Teacher(teacherData);
@@ -186,7 +186,7 @@ app.post('/teachers', async (req, res) => {
 const Student = require('./models/Student');
 
 // Create a new student
-app.post('/studentreg', async (req, res) => {
+app.post('https://vidhya-ghar-backend.vercel.app/studentreg', async (req, res) => {
   try {
     const studentData = req.body;
     const student = new Student(studentData);
@@ -203,7 +203,7 @@ app.post('/studentreg', async (req, res) => {
 const Admin = require('./models/Admin');
 
 // Create a new admin
-app.post('/admins', async (req, res) => {
+app.post('https://vidhya-ghar-backend.vercel.app/admins', async (req, res) => {
   try {
     const adminData = req.body;
     const admin = new Admin(adminData);
@@ -217,7 +217,7 @@ app.post('/admins', async (req, res) => {
 
 
 
-app.post('/student-login', async (req, res) => {
+app.post('https://vidhya-ghar-backend.vercel.app/student-login', async (req, res) => {
   try {
     const { studentId, password } = req.body;
     const user = await Student.findOne({ studentId });
@@ -243,7 +243,7 @@ app.post('/student-login', async (req, res) => {
 
 
 //TEACHER LOG IN API
-app.post('/teacher-login', async (req, res) => {
+app.post('https://vidhya-ghar-backend.vercel.app/teacher-login', async (req, res) => {
   try {
     const { teacherId, password } = req.body;
     const user = await Teacher.findOne({ teacherId });
@@ -269,7 +269,7 @@ app.post('/teacher-login', async (req, res) => {
 
 
 //ADMIN LOG IN API
-app.post('/admin-login', async (req, res) => {
+app.post('https://vidhya-ghar-backend.vercel.app/admin-login', async (req, res) => {
   try {
     const { adminId, password } = req.body;
     const user = await Admin.findOne({ adminId });
